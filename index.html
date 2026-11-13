@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sector Warfare — quick match</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sector Warfare: a space-colony strategy game. Play a quick match against computer rivals right in your browser.">
+  <meta property="og:title" content="Sector Warfare">
+  <meta property="og:description" content="Build your colony. Command your fleet. Quick matches against computer rivals in your browser.">
+  <meta property="og:image" content="og-image.png">
+  <style>
+    html, body, canvas { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; position: absolute; background: #0a0d13; z-index: 0; }
+    #loading { position: absolute; z-index: 1; top: 45%; width: 100%; text-align: center; color: #c9d3e0; font: 18px monospace; }
+  </style>
+</head>
+<body>
+  <canvas id="glcanvas" tabindex="1"></canvas>
+  <div id="loading">Loading Sector Warfare…</div>
+  <script>window.SW_OFFLINE = true;</script>
+  <script src="mq_js_bundle.js"></script>
+  <script src="sw_net.js"></script>
+  <script>
+    load("sector-warfare.wasm");
+    setTimeout(function () { var l = document.getElementById("loading"); if (l) l.remove(); }, 2500);
+    document.getElementById("glcanvas").focus();
+  </script>
+</body>
+</html>
